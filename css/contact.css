@@ -1,23 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap");
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
 :root {
     --primary: #232142;
     --secondary: #57ffdc;
+    --darker-seconadry: #28ffd4;
     --tertiary: #fff;
     --icon-size: 50px;
     --icon-size: 75px;
-    --gery: #54595f;
-    --text-font-size: 16px;
+    --gery: #d3d3d3;
+    --text-font-size: 18px;
     --focus-color: #e91e63;
 }
 
 .background {
-    background-image: url("img/city.jpg");
+    background-image: url("../img/city.jpg");
     background-size: cover;
 }
 
@@ -41,7 +44,7 @@
     margin: 30px 0;
     & h2 {
         text-align: center;
-        color: var(--tertiary);
+        color: var(--secondary);
         font-size: 36px;
         font-weight: 500;
         margin-bottom: 30px;
@@ -49,7 +52,7 @@
     & p {
         text-align: center;
         font-weight: 300;
-        color: var(--tertiary);
+        color: var(--gery);
         font-size: var(--text-font-size);
         line-height: 28px;
     }
@@ -73,6 +76,13 @@
     position: relative;
     padding: 20px 0;
     display: flex;
+    & a {
+        text-decoration: none;
+        color: var(--tertiary);
+    }
+    & a .icon {
+        color: var(--primary);
+    }
 
     & .icon {
         min-width: 60px;
@@ -83,6 +93,16 @@
         justify-content: center;
         border-radius: 50%;
         font-size: 22px;
+        transition: 0.5s;
+    }
+
+    & .icon:hover {
+        background-color: var(--primary);
+        color: var(--tertiary);
+    }
+    & .text p a:hover {
+        font-size: 21px;
+        transition: 0.5s;
     }
     & .text {
         display: flex;
@@ -93,8 +113,9 @@
         font-weight: 300;
     }
     & .text h3 {
-        font-weight: 500;
+        font-weight: 400;
         color: var(--secondary);
+        margin-bottom: 6px;
     }
 }
 
@@ -104,7 +125,7 @@
     background-color: white;
     & h2 {
         font-size: 30px;
-        font-weight: 500;
+        font-weight: 400;
         color: var(--primary);
     }
     & .input-box {
@@ -132,15 +153,17 @@
         pointer-events: none;
         transition: 0.5s;
         color: var(--primary);
-        font-weight: 500;
+        font-weight: 400;
     }
 
     & .input-box input:focus ~ span,
     & .input-box textarea:focus ~ span,
-    & .input-box input:valid ~ span,
+    & .input-box:not(.not-required) input:valid ~ span,
     & .input-box input[type="email"]:not(:placeholder-shown) ~ span,
+    & .input-box input[name="company"]:not(:placeholder-shown) ~ span,
+    & .input-box input[name="need"]:not(:placeholder-shown) ~ span,
     & .input-box textarea:valid ~ span {
-        color: var(--focus-color);
+        color: #4b0082;
         font-size: 12px;
         transform: translateY(-20px);
     }
@@ -159,10 +182,14 @@
         flex-direction: column;
     }
     .contact-info {
-        width: 75%;
-        margin-bottom: 30px;
+        width: 70%;
+        margin-top: 0;
+        margin-bottom: 60px;
     }
     .contact-form {
         width: 100%;
+    }
+    .input-box {
+        text-align: center;
     }
 }

@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --primary: #232142;
+    --secondary: #57ffdc;
+    --tertiary: #fff;
+    --icon-size: 50px;
+    --icon-size: 75px;
+    --gery: #54595f;
+    --text-font-size: 16px;
+    --focus-color: #e91e63;
+}
+
+.background {
+    background-image: url("img/city.jpg");
+    background-size: cover;
+}
+
+.contact {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(35, 33, 66, 0.6);
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+}
+
+.contact .content {
+    margin: 30px 0;
+    & h2 {
+        text-align: center;
+        color: var(--tertiary);
+        font-size: 36px;
+        font-weight: 500;
+        margin-bottom: 30px;
+    }
+    & p {
+        text-align: center;
+        font-weight: 300;
+        color: var(--tertiary);
+        font-size: var(--text-font-size);
+        line-height: 28px;
+    }
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.contact-info {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .contact-info .box {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+
+    & .icon {
+        min-width: 60px;
+        height: 60px;
+        background-color: var(--tertiary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 22px;
+    }
+    & .text {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        font-size: var(--text-font-size);
+        color: var(--tertiary);
+        font-weight: 300;
+    }
+    & .text h3 {
+        font-weight: 500;
+        color: var(--secondary);
+    }
+}
+
+.contact-form {
+    width: 40%;
+    padding: 40px;
+    background-color: white;
+    & h2 {
+        font-size: 30px;
+        font-weight: 500;
+        color: var(--primary);
+    }
+    & .input-box {
+        position: relative;
+        width: 100%;
+        margin-top: 10px;
+    }
+    & .input-box input,
+    & .input-box textarea {
+        width: 100%;
+        padding: 5px 0;
+        font-size: var(--text-font-size);
+        margin: 10px 0;
+        border: none;
+        border-bottom: 2px solid var(--primary);
+        outline: none;
+        resize: none;
+    }
+    & .input-box span {
+        position: absolute;
+        left: 0;
+        padding: 5px 0;
+        font-size: var(--text-font-size);
+        margin: 10px 0;
+        pointer-events: none;
+        transition: 0.5s;
+        color: var(--primary);
+        font-weight: 500;
+    }
+
+    & .input-box input:focus ~ span,
+    & .input-box textarea:focus ~ span,
+    & .input-box input:valid ~ span,
+    & .input-box input[type="email"]:not(:placeholder-shown) ~ span,
+    & .input-box textarea:valid ~ span {
+        color: var(--focus-color);
+        font-size: 12px;
+        transform: translateY(-20px);
+    }
+    & .input-box input[type="submit"] {
+        width: 100px;
+        background-color: var(--primary);
+        color: var(--tertiary);
+    }
+}
+
+@media (max-width: 991px) {
+    .contact {
+        padding: 30px;
+    }
+    .container {
+        flex-direction: column;
+    }
+    .contact-info {
+        width: 75%;
+        margin-bottom: 30px;
+    }
+    .contact-form {
+        width: 100%;
+    }
+}
